@@ -1,7 +1,6 @@
 docker-openwrt-buildroot
 ========================
-[![Docker Build Status](http://hubstatus.container42.com/noonien/openwrt-buildroot)](https://registry.hub.docker.com/u/noonien/openwrt-buildroot)
-[![License: MIT](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/noonien/docker-openwrt-buildroot/blob/master/LICENSE)
+[![License: MIT](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/hnw/docker-openwrt-buildroot/blob/master/LICENSE)
 
 
 This is a docker container for the [OpenWRT](https://openwrt.org/)
@@ -13,7 +12,7 @@ the user `openwrt` was created. The buildroot can be found in
 
 To run a shell in the buildroot, execute the following command:
 ```sh
-docker run -t -i noonien/openwrt-buildroot:14.07 sudo -iu openwrt bash
+docker run -i -t yhnw/openwrt-buildroot sudo -i -u openwrt bash
 ```
 
 More information on how to use this buildroot can be found on the
