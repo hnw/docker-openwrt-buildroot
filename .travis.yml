@@ -1,0 +1,26 @@
+language: c
+services: docker
+cache: ccache
+
+env:
+  global:
+    - DOCKERHUB_IMG=yhnw/openwrt-buildroot
+    - TAG=base
+
+  matrix:
+    - OPENWRT_VER=15.05.1 ARCH=ar71xx
+
+script:
+  - ccache -s | tee ccache.log
+  - >-
+    docker run --rm -u openwrt
+    -w /home/openwrt
+    -v $(pwd):/work
+    -v ${HOME}/.ccache:/home/openwrt/openwrt/staging_dir/host/ccache
+    ${DOCKERHUB_IMG}:${TAG} /work/build.sh ${OPENWRT_VER} ${ARCH}
+  - >-
+    echo '### ccache status (before build) ###' &&
+    cat ccache.log &&
+    echo &&
+    echo '### ccash status (after build) ###' &&
+    ccache -s
