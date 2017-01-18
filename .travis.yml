@@ -4,23 +4,28 @@ cache: ccache
 
 env:
   global:
-    - DOCKERHUB_IMG=yhnw/openwrt-buildroot
-    - TAG=base
+    - USER=yhnw
+    - REPO=openwrt-buildroot
+    - secure: "eCCHweDeafmxmWe4wD4YsfTIBsOAvwtXqnfixsrt/Dd3Nc/q+ew5aPPk/ksemX7DZqzrQO3/TPlYeeaGkVwOu45ujb3EYlSGhsTtm70oBZP6s8s+NlppAsEztEVRKDCr+QlO23nsJrtVv7HvtUa0KxoH4XRbmLNN8auTdIZoTIahZRLS97yLJbeUNUXqok7EXdNI5Y6SAuhzsVoDOGYqSuLe5rlPtE2gVg2ByaInDBukQgxiHl5BBx0eut2Im4sLVdXeRDnGGMY7RcKd4HHTeyvRbqW857u2drXRPoU0qzg9OxDKNu0EauIuoRVqBsVfFdwdRW883irzspfaRiYGMb6+kIOuwcti8Qj2NYckPTms/7WLCwupOlcYYY1wAslpVDmBfnprtSuXgbAG56otdow+iih/leTEHpxaHhIVA9f89hkiWANCrcrzShRET7Sa6BLEwXV7P6t95KzfCk86qS7Xynjpsi4fvtlC3hnw9+JGwRUANe9pNOkFq6Ldh39kdyo9FRO9UJT1+K76+UoJDo8BTAmKbb9sswr7cPHlyBR4WXH1HvGIcabwdNjZGqGa4L5TbcOAGjuTYPLIj12MSGjUV0PZdZpqXCpctAM8d2F1sI+A/30h2pl0cKEjUjANJEU/HmbuwvU+21L4Zyoo8RGEsSB8FGTm1bbCaEYtdsU="
 
   matrix:
-    - OPENWRT_VER=15.05.1 ARCH=ar71xx
+    - BRANCH=15.05.1 BOARD=ar71xx
 
 script:
-  - ccache -s | tee ccache.log
   - >-
-    docker run --rm -u openwrt
+    docker run
+    -u openwrt
     -w /home/openwrt
     -v $(pwd):/work
-    -v ${HOME}/.ccache:/home/openwrt/openwrt/staging_dir/host/ccache
-    ${DOCKERHUB_IMG}:${TAG} /work/build.sh ${OPENWRT_VER} ${ARCH}
-  - >-
-    echo '### ccache status (before build) ###' &&
-    cat ccache.log &&
-    echo &&
-    echo '### ccash status (after build) ###' &&
-    ccache -s
+    -v ${HOME}/.ccache:/home/openwrt/.ccache
+    --name container-${BRANCH}-${BOARD}
+    ${USER}/${REPO}:base-${BRANCH} /work/build.sh ${BRANCH} ${BOARD}
+  - docker commit container-${BRANCH}-${BOARD} ${USER}/${REPO}:${BRANCH}-${BOARD}
+
+after_script:
+  - docker images
+  - |
+    if [ "${TRAVIS_BRANCH}" == "master" ]; then
+      docker login -u=${USER} -p=${DOCKER_PASSWORD}
+      docker push ${USER}/${REPO}:${BRANCH}-${BOARD}
+    fi

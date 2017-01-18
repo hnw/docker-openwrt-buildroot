@@ -1,0 +1,4 @@
+FROM yhnw/openwrt-buildroot:base
+
+RUN sudo -i -u openwrt git clone --depth 1 -b chaos_calmer git://github.com/openwrt/openwrt.git &&\
+    sudo -i -u openwrt mkdir -p /home/openwrt/.ccache
