@@ -1,33 +1,13 @@
 docker-openwrt-buildroot
 ========================
-[![License: MIT](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/hnw/docker-openwrt-buildroot/blob/master/LICENSE)
 
+[![Build Status](https://travis-ci.org/hnw/docker-openwrt-buildroot.svg?branch=master)](https://travis-ci.org/hnw/docker-openwrt-buildroot) [![License: MIT](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/hnw/docker-openwrt-buildroot/blob/master/LICENSE)
 
-This is a docker container for the [OpenWRT](https://openwrt.org/)
-[buildroot](http://wiki.openwrt.org/doc/howto/buildroot.exigence).
+[OpenWrt](https://openwrt.org/)の[buildroot](http://wiki.openwrt.org/doc/howto/buildroot.exigence)環境をDockerイメージで提供するプロジェクトです。
 
-Because the build system requires that its command are not executed by root,
-the user `openwrt` was created. The buildroot can be found in
-`/home/openwrt/openwrt`.
+Travis CIを利用し、OpenWrt buildrootのtoolchainまでビルドした状態で[Docker Hubにデプロイ](https://hub.docker.com/r/yhnw/openwrt-buildroot/tags/)しています。toolchainのビルド時間は環境にもよりますが30分から1時間程度かかることが多いかと思います。このtoolchainの生成が既に済んでいる状態のDockerイメージがあると自前ビルドの心理的ハードルが下がるのではないでしょうか（自前の`*.ipk`が作りたいだけなら[OpenWrt SDK](https://wiki.openwrt.org/doc/howto/obtain.firmware.sdk)の利用をオススメします）。
 
-To run a shell in the buildroot, execute the following command:
-
-```sh
-docker run -it -u openwrt yhnw/openwrt-buildroot:15.05.1-ar71xx bash
-```
-More information on how to use this buildroot can be found on the
-[OpenWRT wiki](http://wiki.openwrt.org/doc/howto/build).
-
-
-
-docker-openwrt-buildroot
-========================
-
-[OpenWRT](https://openwrt.org/)の[buildroot](http://wiki.openwrt.org/doc/howto/buildroot.exigence)環境をDockerイメージで提供するプロジェクトです。
-
-Travis CIを利用し、OpenWrt buildrootのtoolchainまでビルドした状態でDocker Hubにデプロイしています。一番時間のかかるtoolchainの生成が既に済んでいる状態のDockerイメージがあると自前ビルドの心理的ハードルが下がるのではないでしょうか（個人的には、自前の`*.ipk`が作りたいだけならOpenWrt SDKの利用をオススメします）。
-
-このイメージは下記のようにすれば使えます。
+このイメージは下記のようにすれば利用できます。
 
 ```
 $ docker run -it -u openwrt yhnw/openwrt-buildroot:15.05.1-ar71xx bash
@@ -41,7 +21,24 @@ $ docker run -it -u openwrt yhnw/openwrt-buildroot:15.05.1-ar71xx bash
 
 現時点では下記の組み合わせのイメージしか提供していません。必要な組み合わせがあればissueなりpull requestなりからご連絡ください。
 
- * OpenWrtバージョン
-   - 15.05.1
- * 対応ボード
-   - ar71xx（Atheros AR71xx/AR7240/AR913x/AR934x）
+
+* OpenWrtバージョン
+  - 15.05.1
+* 対応ボード
+  - ar71xx（Atheros AR71xx/AR7240/AR913x/AR934x）
+  - bcm53xx (Broadcom BCM47xx/53xx (ARM))
+  - ramips-mt7620a (MediaTek MT7620)
+  - ramips-rt305x (Ralink RT3x5x/RT5350)
+
+# menuconfigの修正内容
+
+ビルド設定のうち、デフォルトから変更している内容は下記の通りです。ビルド時間短縮が目的です。
+
+* Global build settings
+  - Use top-level make jobserver for packages
+	- on → off
+  - Number of package submake jobs (2-512)
+	- 2 → 3
+* Advanced configuration options (for developers)
+  - Use ccache
+	- off → on

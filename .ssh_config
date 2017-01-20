@@ -1,0 +1,3 @@
+Host github.com
+  Compression yes
+  Ciphers arcfour256,arcfour128,arcfour,aes128-ctr,aes192-ctr,aes256-ctr

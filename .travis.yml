@@ -1,6 +1,8 @@
 language: c
 services: docker
-cache: ccache
+cache:
+  directories:
+  - cache
 
 env:
   global:
@@ -10,22 +12,27 @@ env:
 
   matrix:
     - BRANCH=15.05.1 BOARD=ar71xx
+    - BRANCH=15.05.1 BOARD=bcm53xx
+    - BRANCH=15.05.1 BOARD=ramips-mt7620
+    - BRANCH=15.05.1 BOARD=ramips-rt305x
+
+before_script:
+  - ${TRAVIS_BUILD_DIR}/download.sh ${BRANCH}
 
 script:
   - >-
     docker run
     -u openwrt
     -w /home/openwrt
-    -v $(pwd):/work
-    -v ${HOME}/.ccache:/home/openwrt/.ccache
+    -v $(pwd):/hostdir
     --name container-${BRANCH}-${BOARD}
-    ${USER}/${REPO}:base-${BRANCH} /work/build.sh ${BRANCH} ${BOARD}
+    ${USER}/${REPO}:base /hostdir/build.sh ${BRANCH} ${BOARD}
   - docker commit container-${BRANCH}-${BOARD} ${USER}/${REPO}:${BRANCH}-${BOARD}
 
 after_script:
   - docker images
   - |
-    if [ "${TRAVIS_BRANCH}" == "master" ]; then
+    if [[ ${TRAVIS_BRANCH} == "master" && -n ${PUSH_DOCKER_IMAGES} ]]; then
       docker login -u=${USER} -p=${DOCKER_PASSWORD}
       docker push ${USER}/${REPO}:${BRANCH}-${BOARD}
     fi

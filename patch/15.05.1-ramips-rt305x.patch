@@ -1,0 +1,718 @@
+*** openwrt.orig/.config	2017-01-20 17:28:46.000000000 +0900
+--- openwrt/.config	2017-01-20 21:49:34.000000000 +0900
+***************
+*** 9,15 ****
+  # CONFIG_TARGET_arm64 is not set
+  # CONFIG_TARGET_sunxi is not set
+  # CONFIG_TARGET_ath25 is not set
+! CONFIG_TARGET_ar71xx=y
+  # CONFIG_TARGET_at91 is not set
+  # CONFIG_TARGET_brcm2708 is not set
+  # CONFIG_TARGET_bcm53xx is not set
+--- 9,15 ----
+  # CONFIG_TARGET_arm64 is not set
+  # CONFIG_TARGET_sunxi is not set
+  # CONFIG_TARGET_ath25 is not set
+! # CONFIG_TARGET_ar71xx is not set
+  # CONFIG_TARGET_at91 is not set
+  # CONFIG_TARGET_brcm2708 is not set
+  # CONFIG_TARGET_bcm53xx is not set
+***************
+*** 34,48 ****
+  # CONFIG_TARGET_mcs814x is not set
+  # CONFIG_TARGET_oxnas is not set
+  # CONFIG_TARGET_au1000 is not set
+! # CONFIG_TARGET_ramips is not set
+  # CONFIG_TARGET_ar7 is not set
+  # CONFIG_TARGET_omap is not set
+  # CONFIG_TARGET_uml is not set
+  # CONFIG_TARGET_x86 is not set
+! CONFIG_TARGET_ar71xx_generic=y
+  # CONFIG_TARGET_ar71xx_nand is not set
+  # CONFIG_TARGET_ar71xx_mikrotik is not set
+! CONFIG_TARGET_ar71xx_generic_Default=y
+  # CONFIG_TARGET_ar71xx_generic_Minimal is not set
+  # CONFIG_TARGET_ar71xx_generic_ath5k is not set
+  # CONFIG_TARGET_ar71xx_generic_CARAMBOLA2 is not set
+--- 34,55 ----
+  # CONFIG_TARGET_mcs814x is not set
+  # CONFIG_TARGET_oxnas is not set
+  # CONFIG_TARGET_au1000 is not set
+! CONFIG_TARGET_ramips=y
+  # CONFIG_TARGET_ar7 is not set
+  # CONFIG_TARGET_omap is not set
+  # CONFIG_TARGET_uml is not set
+  # CONFIG_TARGET_x86 is not set
+! # CONFIG_TARGET_ar71xx_generic is not set
+  # CONFIG_TARGET_ar71xx_nand is not set
+  # CONFIG_TARGET_ar71xx_mikrotik is not set
+! CONFIG_TARGET_ramips_rt305x=y
+! # CONFIG_TARGET_ramips_mt7620 is not set
+! # CONFIG_TARGET_ramips_mt7621 is not set
+! # CONFIG_TARGET_ramips_mt7628 is not set
+! # CONFIG_TARGET_ramips_mt7688 is not set
+! # CONFIG_TARGET_ramips_rt3883 is not set
+! # CONFIG_TARGET_ramips_rt288x is not set
+! # CONFIG_TARGET_ar71xx_generic_Default is not set
+  # CONFIG_TARGET_ar71xx_generic_Minimal is not set
+  # CONFIG_TARGET_ar71xx_generic_ath5k is not set
+  # CONFIG_TARGET_ar71xx_generic_CARAMBOLA2 is not set
+***************
+*** 205,215 ****
+  # CONFIG_TARGET_ar71xx_generic_ZCN1523H28 is not set
+  # CONFIG_TARGET_ar71xx_generic_ZCN1523H516 is not set
+  # CONFIG_TARGET_ar71xx_generic_NBG_460N_550N_550NH is not set
+  CONFIG_HAS_SUBTARGETS=y
+! CONFIG_TARGET_BOARD="ar71xx"
+! CONFIG_TARGET_ARCH_PACKAGES="ar71xx"
+! CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc"
+! CONFIG_CPU_TYPE="34kc"
+  CONFIG_LINUX_3_18=y
+  CONFIG_DEFAULT_base-files=y
+  CONFIG_DEFAULT_busybox=y
+--- 212,271 ----
+  # CONFIG_TARGET_ar71xx_generic_ZCN1523H28 is not set
+  # CONFIG_TARGET_ar71xx_generic_ZCN1523H516 is not set
+  # CONFIG_TARGET_ar71xx_generic_NBG_460N_550N_550NH is not set
++ CONFIG_TARGET_ramips_rt305x_Default=y
++ # CONFIG_TARGET_ramips_rt305x_ALL02393G is not set
++ # CONFIG_TARGET_ramips_rt305x_ALL0256N is not set
++ # CONFIG_TARGET_ramips_rt305x_ALL5002 is not set
++ # CONFIG_TARGET_ramips_rt305x_ALL5003 is not set
++ # CONFIG_TARGET_ramips_rt305x_ASL26555 is not set
++ # CONFIG_TARGET_ramips_rt305x_AWM002EVB is not set
++ # CONFIG_TARGET_ramips_rt305x_AWM003EVB is not set
++ # CONFIG_TARGET_ramips_rt305x_AWAPN2403 is not set
++ # CONFIG_TARGET_ramips_rt305x_RT-N10-PLUS is not set
++ # CONFIG_TARGET_ramips_rt305x_RT-N13U is not set
++ # CONFIG_TARGET_ramips_rt305x_MR102N is not set
++ # CONFIG_TARGET_ramips_rt305x_HW550-3G is not set
++ # CONFIG_TARGET_ramips_rt305x_F5D8235V2 is not set
++ # CONFIG_TARGET_ramips_rt305x_F7C027 is not set
++ # CONFIG_TARGET_ramips_rt305x_BROADWAY is not set
++ # CONFIG_TARGET_ramips_rt305x_DIR615H1 is not set
++ # CONFIG_TARGET_ramips_rt305x_DIR-615-D is not set
++ # CONFIG_TARGET_ramips_rt305x_DCS930 is not set
++ # CONFIG_TARGET_ramips_rt305x_DCS930LB1 is not set
++ # CONFIG_TARGET_ramips_rt305x_DIR610A1 is not set
++ # CONFIG_TARGET_ramips_rt305x_WIZARD8800 is not set
++ # CONFIG_TARGET_ramips_rt305x_ESR9753 is not set
++ # CONFIG_TARGET_ramips_rt305x_FONERA20N is not set
++ # CONFIG_TARGET_ramips_rt305x_FREESTATION5 is not set
++ # CONFIG_TARGET_ramips_rt305x_MPRA1 is not set
++ # CONFIG_TARGET_ramips_rt305x_MPRA2 is not set
++ # CONFIG_TARGET_ramips_rt305x_HG255D is not set
++ # CONFIG_TARGET_ramips_rt305x_HLKRM04 is not set
++ # CONFIG_TARGET_ramips_rt305x_HT-TM02 is not set
++ # CONFIG_TARGET_ramips_rt305x_M2M is not set
++ # CONFIG_TARGET_ramips_rt305x_A5-V11 is not set
++ # CONFIG_TARGET_ramips_rt305x_WT1520 is not set
++ # CONFIG_TARGET_ramips_rt305x_OLINUXINO-RT5350F-EVB is not set
++ # CONFIG_TARGET_ramips_rt305x_OLINUXINO-RT5350F is not set
++ # CONFIG_TARGET_ramips_rt305x_IP2202 is not set
++ # CONFIG_TARGET_ramips_rt305x_M3 is not set
++ # CONFIG_TARGET_ramips_rt305x_M4 is not set
++ # CONFIG_TARGET_ramips_rt305x_X5 is not set
++ # CONFIG_TARGET_ramips_rt305x_X8 is not set
++ # CONFIG_TARGET_ramips_rt305x_PX4885 is not set
++ # CONFIG_TARGET_ramips_rt305x_3G150B is not set
++ # CONFIG_TARGET_ramips_rt305x_3G300M is not set
++ # CONFIG_TARGET_ramips_rt305x_W306R_V20 is not set
++ # CONFIG_TARGET_ramips_rt305x_UR-336UN is not set
++ # CONFIG_TARGET_ramips_rt305x_UR-326N4G is not set
++ # CONFIG_TARGET_ramips_rt305x_VOCORE is not set
++ # CONFIG_TARGET_ramips_rt305x_NCS601W is not set
++ # CONFIG_TARGET_ramips_rt305x_WIZFI630A is not set
+  CONFIG_HAS_SUBTARGETS=y
+! CONFIG_TARGET_BOARD="ramips"
+! CONFIG_TARGET_ARCH_PACKAGES="ramips_24kec"
+! CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mno-branch-likely -mips32r2 -mtune=24kec -mdsp"
+! CONFIG_CPU_TYPE="24kec+dsp"
+  CONFIG_LINUX_3_18=y
+  CONFIG_DEFAULT_base-files=y
+  CONFIG_DEFAULT_busybox=y
+***************
+*** 220,232 ****
+  CONFIG_DEFAULT_ip6tables=y
+  CONFIG_DEFAULT_iptables=y
+  CONFIG_DEFAULT_iwinfo=y
+- CONFIG_DEFAULT_kmod-ath9k=y
+  CONFIG_DEFAULT_kmod-gpio-button-hotplug=y
+  CONFIG_DEFAULT_kmod-ledtrig-usbdev=y
+  CONFIG_DEFAULT_kmod-nf-nathelper=y
+  CONFIG_DEFAULT_kmod-usb-core=y
+! CONFIG_DEFAULT_kmod-usb-ohci=y
+! CONFIG_DEFAULT_kmod-usb2=y
+  CONFIG_DEFAULT_libc=y
+  CONFIG_DEFAULT_libgcc=y
+  CONFIG_DEFAULT_logd=y
+--- 276,288 ----
+  CONFIG_DEFAULT_ip6tables=y
+  CONFIG_DEFAULT_iptables=y
+  CONFIG_DEFAULT_iwinfo=y
+  CONFIG_DEFAULT_kmod-gpio-button-hotplug=y
++ CONFIG_DEFAULT_kmod-leds-gpio=y
+  CONFIG_DEFAULT_kmod-ledtrig-usbdev=y
+  CONFIG_DEFAULT_kmod-nf-nathelper=y
++ CONFIG_DEFAULT_kmod-rt2800-soc=y
+  CONFIG_DEFAULT_kmod-usb-core=y
+! CONFIG_DEFAULT_kmod-usb-dwc2=y
+  CONFIG_DEFAULT_libc=y
+  CONFIG_DEFAULT_libgcc=y
+  CONFIG_DEFAULT_logd=y
+***************
+*** 238,260 ****
+  CONFIG_DEFAULT_ppp=y
+  CONFIG_DEFAULT_ppp-mod-pppoe=y
+  CONFIG_DEFAULT_swconfig=y
+- CONFIG_DEFAULT_uboot-envtools=y
+  CONFIG_DEFAULT_uci=y
+  CONFIG_DEFAULT_wpad-mini=y
+  CONFIG_AUDIO_SUPPORT=y
+  CONFIG_GPIO_SUPPORT=y
+- CONFIG_PCI_SUPPORT=y
+  CONFIG_USB_SUPPORT=y
+! CONFIG_BIG_ENDIAN=y
+  CONFIG_USES_SQUASHFS=y
+! CONFIG_HAS_MIPS16=y
+! CONFIG_mips=y
+! CONFIG_ARCH="mips"
+  
+  #
+  # Target Images
+  #
+! # CONFIG_TARGET_ROOTFS_INITRAMFS is not set
+  CONFIG_EXTERNAL_CPIO=""
+  
+  #
+--- 294,321 ----
+  CONFIG_DEFAULT_ppp=y
+  CONFIG_DEFAULT_ppp-mod-pppoe=y
+  CONFIG_DEFAULT_swconfig=y
+  CONFIG_DEFAULT_uci=y
+  CONFIG_DEFAULT_wpad-mini=y
+  CONFIG_AUDIO_SUPPORT=y
+  CONFIG_GPIO_SUPPORT=y
+  CONFIG_USB_SUPPORT=y
+! CONFIG_USES_DEVICETREE=y
+! CONFIG_USES_INITRAMFS=y
+  CONFIG_USES_SQUASHFS=y
+! CONFIG_mipsel=y
+! CONFIG_ARCH="mipsel"
+  
+  #
+  # Target Images
+  #
+! CONFIG_TARGET_ROOTFS_INITRAMFS=y
+! # CONFIG_TARGET_INITRAMFS_COMPRESSION_NONE is not set
+! # CONFIG_TARGET_INITRAMFS_COMPRESSION_GZIP is not set
+! # CONFIG_TARGET_INITRAMFS_COMPRESSION_BZIP2 is not set
+! CONFIG_TARGET_INITRAMFS_COMPRESSION_LZMA=y
+! # CONFIG_TARGET_INITRAMFS_COMPRESSION_LZO is not set
+! # CONFIG_TARGET_INITRAMFS_COMPRESSION_LZ4 is not set
+! # CONFIG_TARGET_INITRAMFS_COMPRESSION_XZ is not set
+  CONFIG_EXTERNAL_CPIO=""
+  
+  #
+***************
+*** 324,330 ****
+  CONFIG_KERNEL_PRINTK_TIME=y
+  # CONFIG_KERNEL_SLABINFO is not set
+  # CONFIG_KERNEL_PROC_PAGE_MONITOR is not set
+- CONFIG_KERNEL_RELAY=y
+  # CONFIG_KERNEL_KEXEC is not set
+  # CONFIG_USE_RFKILL is not set
+  # CONFIG_USE_SPARSE is not set
+--- 385,390 ----
+***************
+*** 341,347 ****
+  # CONFIG_DEBUG is not set
+  CONFIG_IPV6=y
+  CONFIG_PKG_BUILD_PARALLEL=y
+! CONFIG_PKG_BUILD_USE_JOBSERVER=y
+  
+  #
+  # Stripping options
+--- 401,408 ----
+  # CONFIG_DEBUG is not set
+  CONFIG_IPV6=y
+  CONFIG_PKG_BUILD_PARALLEL=y
+! # CONFIG_PKG_BUILD_USE_JOBSERVER is not set
+! CONFIG_PKG_BUILD_JOBS=3
+  
+  #
+  # Stripping options
+***************
+*** 367,373 ****
+  CONFIG_PKG_RELRO_NONE=y
+  # CONFIG_PKG_RELRO_PARTIAL is not set
+  # CONFIG_PKG_RELRO_FULL is not set
+! # CONFIG_DEVEL is not set
+  # CONFIG_BROKEN is not set
+  CONFIG_BINARY_FOLDER=""
+  CONFIG_DOWNLOAD_FOLDER=""
+--- 428,434 ----
+  CONFIG_PKG_RELRO_NONE=y
+  # CONFIG_PKG_RELRO_PARTIAL is not set
+  # CONFIG_PKG_RELRO_FULL is not set
+! CONFIG_DEVEL=y
+  # CONFIG_BROKEN is not set
+  CONFIG_BINARY_FOLDER=""
+  CONFIG_DOWNLOAD_FOLDER=""
+***************
+*** 375,387 ****
+  CONFIG_AUTOREBUILD=y
+  CONFIG_BUILD_SUFFIX=""
+  CONFIG_TARGET_ROOTFS_DIR=""
+! # CONFIG_CCACHE is not set
+  CONFIG_EXTERNAL_KERNEL_TREE=""
+  CONFIG_KERNEL_GIT_CLONE_URI=""
+  CONFIG_EXTRA_OPTIMIZATION="-fno-caller-saves"
+! CONFIG_TARGET_OPTIMIZATION="-Os -pipe -mno-branch-likely -mips32r2 -mtune=34kc"
+  CONFIG_SOFT_FLOAT=y
+! CONFIG_USE_MIPS16=y
+  # CONFIG_EXTRA_TARGET_ARCH is not set
+  CONFIG_EXTRA_BINUTILS_CONFIG_OPTIONS=""
+  CONFIG_BINUTILS_VERSION="linaro"
+--- 436,453 ----
+  CONFIG_AUTOREBUILD=y
+  CONFIG_BUILD_SUFFIX=""
+  CONFIG_TARGET_ROOTFS_DIR=""
+! CONFIG_CCACHE=y
+  CONFIG_EXTERNAL_KERNEL_TREE=""
+  CONFIG_KERNEL_GIT_CLONE_URI=""
++ # CONFIG_BUILD_LOG is not set
++ # CONFIG_SRC_TREE_OVERRIDE is not set
+  CONFIG_EXTRA_OPTIMIZATION="-fno-caller-saves"
+! # CONFIG_TARGET_OPTIONS is not set
+! CONFIG_TARGET_OPTIMIZATION="-Os -pipe -mno-branch-likely -mips32r2 -mtune=24kec -mdsp"
+  CONFIG_SOFT_FLOAT=y
+! # CONFIG_EXTERNAL_TOOLCHAIN is not set
+! CONFIG_NEED_TOOLCHAIN=y
+! # CONFIG_TOOLCHAINOPTS is not set
+  # CONFIG_EXTRA_TARGET_ARCH is not set
+  CONFIG_EXTRA_BINUTILS_CONFIG_OPTIONS=""
+  CONFIG_BINUTILS_VERSION="linaro"
+***************
+*** 423,433 ****
+  CONFIG_PER_FEED_REPO=y
+  CONFIG_PER_FEED_REPO_ADD_DISABLED=y
+  CONFIG_PER_FEED_REPO_ADD_COMMENTED=y
+! CONFIG_FEED_packages=y
+! CONFIG_FEED_luci=y
+! CONFIG_FEED_routing=y
+! CONFIG_FEED_telephony=y
+! CONFIG_FEED_management=y
+  # CONFIG_SMIMEOPT is not set
+  CONFIG_OPKGSMIME_PASSPHRASE=y
+  
+--- 489,499 ----
+  CONFIG_PER_FEED_REPO=y
+  CONFIG_PER_FEED_REPO_ADD_DISABLED=y
+  CONFIG_PER_FEED_REPO_ADD_COMMENTED=y
+! # CONFIG_FEED_packages is not set
+! # CONFIG_FEED_luci is not set
+! # CONFIG_FEED_routing is not set
+! # CONFIG_FEED_telephony is not set
+! # CONFIG_FEED_management is not set
+  # CONFIG_SMIMEOPT is not set
+  CONFIG_OPKGSMIME_PASSPHRASE=y
+  
+***************
+*** 1369,1375 ****
+  CONFIG_PACKAGE_logd=y
+  CONFIG_PACKAGE_mtd=y
+  CONFIG_PACKAGE_netifd=y
+- # CONFIG_PACKAGE_nvram is not set
+  # CONFIG_PACKAGE_om-watchdog is not set
+  CONFIG_PACKAGE_opkg=y
+  # CONFIG_PACKAGE_opkg-smime is not set
+--- 1435,1440 ----
+***************
+*** 1396,1402 ****
+  #
+  # Boot Loaders
+  #
+- CONFIG_PACKAGE_uboot-ar71xx-nbg460n_550n_550nh=y
+  
+  #
+  # Development
+--- 1461,1466 ----
+***************
+*** 1452,1461 ****
+  # Block Devices
+  #
+  # CONFIG_PACKAGE_kmod-aoe is not set
+- # CONFIG_PACKAGE_kmod-ata-core is not set
+  # CONFIG_PACKAGE_kmod-block2mtd is not set
+  # CONFIG_PACKAGE_kmod-dm is not set
+- # CONFIG_PACKAGE_kmod-ide-core is not set
+  # CONFIG_PACKAGE_kmod-loop is not set
+  # CONFIG_PACKAGE_kmod-md-mod is not set
+  # CONFIG_PACKAGE_kmod-nbd is not set
+--- 1516,1523 ----
+***************
+*** 1544,1550 ****
+  #
+  # FireWire support
+  #
+- # CONFIG_PACKAGE_kmod-firewire is not set
+  
+  #
+  # Hardware Monitoring Support
+--- 1606,1611 ----
+***************
+*** 1575,1584 ****
+  #
+  # LED modules
+  #
+! # CONFIG_PACKAGE_kmod-leds-gpio is not set
+  # CONFIG_PACKAGE_kmod-leds-pca963x is not set
+- # CONFIG_PACKAGE_kmod-leds-rb750 is not set
+- # CONFIG_PACKAGE_kmod-leds-wndr3700-usb is not set
+  # CONFIG_PACKAGE_kmod-ledtrig-default-on is not set
+  # CONFIG_PACKAGE_kmod-ledtrig-gpio is not set
+  # CONFIG_PACKAGE_kmod-ledtrig-heartbeat is not set
+--- 1636,1643 ----
+  #
+  # LED modules
+  #
+! CONFIG_PACKAGE_kmod-leds-gpio=y
+  # CONFIG_PACKAGE_kmod-leds-pca963x is not set
+  # CONFIG_PACKAGE_kmod-ledtrig-default-on is not set
+  # CONFIG_PACKAGE_kmod-ledtrig-gpio is not set
+  # CONFIG_PACKAGE_kmod-ledtrig-heartbeat is not set
+***************
+*** 1595,1601 ****
+  #
+  # CONFIG_PACKAGE_kmod-lib-cordic is not set
+  CONFIG_PACKAGE_kmod-lib-crc-ccitt=y
+! # CONFIG_PACKAGE_kmod-lib-crc-itu-t is not set
+  # CONFIG_PACKAGE_kmod-lib-crc16 is not set
+  # CONFIG_PACKAGE_kmod-lib-crc32c is not set
+  # CONFIG_PACKAGE_kmod-lib-crc7 is not set
+--- 1654,1660 ----
+  #
+  # CONFIG_PACKAGE_kmod-lib-cordic is not set
+  CONFIG_PACKAGE_kmod-lib-crc-ccitt=y
+! CONFIG_PACKAGE_kmod-lib-crc-itu-t=y
+  # CONFIG_PACKAGE_kmod-lib-crc16 is not set
+  # CONFIG_PACKAGE_kmod-lib-crc32c is not set
+  # CONFIG_PACKAGE_kmod-lib-crc7 is not set
+***************
+*** 1699,1718 ****
+  #
+  # Network Devices
+  #
+- # CONFIG_PACKAGE_kmod-3c59x is not set
+- # CONFIG_PACKAGE_kmod-8139cp is not set
+- # CONFIG_PACKAGE_kmod-8139too is not set
+- # CONFIG_PACKAGE_kmod-atl1 is not set
+- # CONFIG_PACKAGE_kmod-atl1c is not set
+- # CONFIG_PACKAGE_kmod-atl1e is not set
+- # CONFIG_PACKAGE_kmod-atl2 is not set
+- # CONFIG_PACKAGE_kmod-b44 is not set
+- # CONFIG_PACKAGE_kmod-dm9000 is not set
+  # CONFIG_PACKAGE_kmod-dummy is not set
+- # CONFIG_PACKAGE_kmod-e100 is not set
+- # CONFIG_PACKAGE_kmod-e1000 is not set
+- # CONFIG_PACKAGE_kmod-et131x is not set
+- # CONFIG_PACKAGE_kmod-forcedeth is not set
+  # CONFIG_PACKAGE_kmod-gigaset is not set
+  # CONFIG_PACKAGE_kmod-hfcmulti is not set
+  # CONFIG_PACKAGE_kmod-hfcpci is not set
+--- 1758,1764 ----
+***************
+*** 1720,1737 ****
+  # CONFIG_PACKAGE_kmod-libphy is not set
+  # CONFIG_PACKAGE_kmod-macvlan is not set
+  # CONFIG_PACKAGE_kmod-mii is not set
+- # CONFIG_PACKAGE_kmod-natsemi is not set
+- # CONFIG_PACKAGE_kmod-ne2k-pci is not set
+  # CONFIG_PACKAGE_kmod-of-mdio is not set
+- # CONFIG_PACKAGE_kmod-pcnet32 is not set
+  # CONFIG_PACKAGE_kmod-phy-broadcom is not set
+- # CONFIG_PACKAGE_kmod-r6040 is not set
+- # CONFIG_PACKAGE_kmod-r8169 is not set
+- # CONFIG_PACKAGE_kmod-sis190 is not set
+- # CONFIG_PACKAGE_kmod-sis900 is not set
+- # CONFIG_PACKAGE_kmod-skge is not set
+- # CONFIG_PACKAGE_kmod-sky2 is not set
+- # CONFIG_PACKAGE_kmod-solos-pci is not set
+  # CONFIG_PACKAGE_kmod-spi-ks8995 is not set
+  # CONFIG_PACKAGE_kmod-swconfig is not set
+  # CONFIG_PACKAGE_kmod-switch-ip17xx is not set
+--- 1766,1773 ----
+***************
+*** 1739,1748 ****
+  # CONFIG_PACKAGE_kmod-switch-rtl8366rb is not set
+  # CONFIG_PACKAGE_kmod-switch-rtl8366s is not set
+  # CONFIG_PACKAGE_kmod-tg3 is not set
+- # CONFIG_PACKAGE_kmod-tulip is not set
+- # CONFIG_PACKAGE_kmod-via-rhine is not set
+- # CONFIG_PACKAGE_kmod-via-velocity is not set
+- # CONFIG_PACKAGE_kmod-vmxnet3 is not set
+  
+  #
+  # Network Support
+--- 1775,1780 ----
+***************
+*** 1798,1809 ****
+  # Other modules
+  #
+  # CONFIG_PACKAGE_kmod-6lowpan is not set
+- # CONFIG_PACKAGE_kmod-bcma is not set
+  # CONFIG_PACKAGE_kmod-bluetooth is not set
+  # CONFIG_PACKAGE_kmod-bluetooth_6lowpan is not set
+  # CONFIG_PACKAGE_kmod-button-hotplug is not set
+  # CONFIG_PACKAGE_kmod-echo is not set
+! # CONFIG_PACKAGE_kmod-eeprom-93cx6 is not set
+  # CONFIG_PACKAGE_kmod-eeprom-at24 is not set
+  # CONFIG_PACKAGE_kmod-eeprom-at25 is not set
+  # CONFIG_PACKAGE_kmod-gpio-beeper is not set
+--- 1830,1840 ----
+  # Other modules
+  #
+  # CONFIG_PACKAGE_kmod-6lowpan is not set
+  # CONFIG_PACKAGE_kmod-bluetooth is not set
+  # CONFIG_PACKAGE_kmod-bluetooth_6lowpan is not set
+  # CONFIG_PACKAGE_kmod-button-hotplug is not set
+  # CONFIG_PACKAGE_kmod-echo is not set
+! CONFIG_PACKAGE_kmod-eeprom-93cx6=y
+  # CONFIG_PACKAGE_kmod-eeprom-at24 is not set
+  # CONFIG_PACKAGE_kmod-eeprom-at25 is not set
+  # CONFIG_PACKAGE_kmod-gpio-beeper is not set
+***************
+*** 1827,1833 ****
+  # CONFIG_PACKAGE_kmod-sdhci is not set
+  # CONFIG_PACKAGE_kmod-serial-8250 is not set
+  # CONFIG_PACKAGE_kmod-softdog is not set
+- # CONFIG_PACKAGE_kmod-ssb is not set
+  # CONFIG_PACKAGE_kmod-zram is not set
+  
+  #
+--- 1858,1863 ----
+***************
+*** 1843,1849 ****
+  # CONFIG_PACKAGE_kmod-spi-gpio is not set
+  # CONFIG_PACKAGE_kmod-spi-gpio-custom is not set
+  # CONFIG_PACKAGE_kmod-spi-gpio-old is not set
+- # CONFIG_PACKAGE_kmod-spi-vsc7385 is not set
+  
+  #
+  # Sound Support
+--- 1873,1878 ----
+***************
+*** 1857,1877 ****
+  # CONFIG_PACKAGE_kmod-usb-atm is not set
+  # CONFIG_PACKAGE_kmod-usb-cm109 is not set
+  CONFIG_PACKAGE_kmod-usb-core=y
+! # CONFIG_PACKAGE_kmod-usb-dwc2 is not set
+  # CONFIG_PACKAGE_kmod-usb-dwc3 is not set
+  # CONFIG_PACKAGE_kmod-usb-hid is not set
+  # CONFIG_PACKAGE_kmod-usb-net is not set
+! CONFIG_PACKAGE_kmod-usb-ohci=y
+! # CONFIG_PACKAGE_kmod-usb-ohci-pci is not set
+  # CONFIG_PACKAGE_kmod-usb-printer is not set
+  # CONFIG_PACKAGE_kmod-usb-serial is not set
+  # CONFIG_PACKAGE_kmod-usb-storage is not set
+  # CONFIG_PACKAGE_kmod-usb-storage-extras is not set
+  # CONFIG_PACKAGE_kmod-usb-uhci is not set
+  # CONFIG_PACKAGE_kmod-usb-wdm is not set
+  # CONFIG_PACKAGE_kmod-usb-yealink is not set
+! CONFIG_PACKAGE_kmod-usb2=y
+! # CONFIG_PACKAGE_kmod-usb2-pci is not set
+  # CONFIG_PACKAGE_kmod-usb3 is not set
+  # CONFIG_PACKAGE_kmod-usbip is not set
+  # CONFIG_PACKAGE_kmod-usbip-client is not set
+--- 1886,1905 ----
+  # CONFIG_PACKAGE_kmod-usb-atm is not set
+  # CONFIG_PACKAGE_kmod-usb-cm109 is not set
+  CONFIG_PACKAGE_kmod-usb-core=y
+! CONFIG_PACKAGE_kmod-usb-dwc2=y
+  # CONFIG_PACKAGE_kmod-usb-dwc3 is not set
+  # CONFIG_PACKAGE_kmod-usb-hid is not set
+  # CONFIG_PACKAGE_kmod-usb-net is not set
+! # CONFIG_PACKAGE_kmod-usb-ohci is not set
+  # CONFIG_PACKAGE_kmod-usb-printer is not set
+  # CONFIG_PACKAGE_kmod-usb-serial is not set
+  # CONFIG_PACKAGE_kmod-usb-storage is not set
+  # CONFIG_PACKAGE_kmod-usb-storage-extras is not set
++ # CONFIG_PACKAGE_kmod-usb-test is not set
+  # CONFIG_PACKAGE_kmod-usb-uhci is not set
+  # CONFIG_PACKAGE_kmod-usb-wdm is not set
+  # CONFIG_PACKAGE_kmod-usb-yealink is not set
+! # CONFIG_PACKAGE_kmod-usb2 is not set
+  # CONFIG_PACKAGE_kmod-usb3 is not set
+  # CONFIG_PACKAGE_kmod-usbip is not set
+  # CONFIG_PACKAGE_kmod-usbip-client is not set
+***************
+*** 1902,1935 ****
+  # CONFIG_PACKAGE_ath10k-firmware-qca6174 is not set
+  # CONFIG_PACKAGE_ath10k-firmware-qca988x is not set
+  # CONFIG_PACKAGE_ath10k-firmware-qca99x0 is not set
+! # CONFIG_PACKAGE_kmod-adm8211 is not set
+! CONFIG_PACKAGE_kmod-ath=y
+! # CONFIG_ATH_USER_REGD is not set
+! # CONFIG_PACKAGE_ATH_DEBUG is not set
+! CONFIG_PACKAGE_ATH_DFS=y
+! # CONFIG_PACKAGE_kmod-ath10k is not set
+! # CONFIG_PACKAGE_kmod-ath5k is not set
+! CONFIG_PACKAGE_kmod-ath9k=y
+! # CONFIG_ATH9K_SUPPORT_PCOEM is not set
+! CONFIG_PACKAGE_kmod-ath9k-common=y
+  # CONFIG_PACKAGE_kmod-ath9k-htc is not set
+- # CONFIG_PACKAGE_kmod-b43 is not set
+- # CONFIG_PACKAGE_kmod-b43legacy is not set
+  # CONFIG_PACKAGE_kmod-brcmfmac is not set
+- # CONFIG_PACKAGE_kmod-brcmsmac is not set
+  # CONFIG_PACKAGE_kmod-brcmutil is not set
+  # CONFIG_PACKAGE_kmod-carl9170 is not set
+  CONFIG_PACKAGE_kmod-cfg80211=y
+- # CONFIG_PACKAGE_kmod-hermes is not set
+- # CONFIG_PACKAGE_kmod-hermes-pci is not set
+- # CONFIG_PACKAGE_kmod-hermes-plx is not set
+- # CONFIG_PACKAGE_kmod-hostap is not set
+- # CONFIG_PACKAGE_kmod-hostap-pci is not set
+- # CONFIG_PACKAGE_kmod-hostap-plx is not set
+- # CONFIG_PACKAGE_kmod-iwl-legacy is not set
+- # CONFIG_PACKAGE_kmod-iwl3945 is not set
+- # CONFIG_PACKAGE_kmod-iwl4965 is not set
+- # CONFIG_PACKAGE_kmod-iwlwifi is not set
+  # CONFIG_PACKAGE_kmod-lib80211 is not set
+  # CONFIG_PACKAGE_kmod-libertas-sdio is not set
+  # CONFIG_PACKAGE_kmod-libertas-spi is not set
+--- 1930,1942 ----
+  # CONFIG_PACKAGE_ath10k-firmware-qca6174 is not set
+  # CONFIG_PACKAGE_ath10k-firmware-qca988x is not set
+  # CONFIG_PACKAGE_ath10k-firmware-qca99x0 is not set
+! # CONFIG_PACKAGE_kmod-ath is not set
+! # CONFIG_PACKAGE_kmod-ath9k-common is not set
+  # CONFIG_PACKAGE_kmod-ath9k-htc is not set
+  # CONFIG_PACKAGE_kmod-brcmfmac is not set
+  # CONFIG_PACKAGE_kmod-brcmutil is not set
+  # CONFIG_PACKAGE_kmod-carl9170 is not set
+  CONFIG_PACKAGE_kmod-cfg80211=y
+  # CONFIG_PACKAGE_kmod-lib80211 is not set
+  # CONFIG_PACKAGE_kmod-libertas-sdio is not set
+  # CONFIG_PACKAGE_kmod-libertas-spi is not set
+***************
+*** 1939,1969 ****
+  # CONFIG_PACKAGE_MAC80211_TRACING is not set
+  CONFIG_PACKAGE_MAC80211_MESH=y
+  # CONFIG_PACKAGE_kmod-mac80211-hwsim is not set
+- # CONFIG_PACKAGE_kmod-mt76 is not set
+  # CONFIG_PACKAGE_kmod-mt7601u is not set
+- # CONFIG_PACKAGE_kmod-mwifiex-pcie is not set
+- # CONFIG_PACKAGE_kmod-mwl8k is not set
+- # CONFIG_PACKAGE_kmod-net-airo is not set
+- # CONFIG_PACKAGE_kmod-net-prism54 is not set
+  # CONFIG_PACKAGE_kmod-net-rtl8188eu is not set
+  # CONFIG_PACKAGE_kmod-net-rtl8192su is not set
+  # CONFIG_PACKAGE_kmod-p54-common is not set
+- # CONFIG_PACKAGE_kmod-p54-pci is not set
+  # CONFIG_PACKAGE_kmod-p54-usb is not set
+- # CONFIG_PACKAGE_kmod-rt2400-pci is not set
+- # CONFIG_PACKAGE_kmod-rt2500-pci is not set
+  # CONFIG_PACKAGE_kmod-rt2500-usb is not set
+! # CONFIG_PACKAGE_kmod-rt2800-pci is not set
+  # CONFIG_PACKAGE_kmod-rt2800-usb is not set
+! # CONFIG_PACKAGE_kmod-rt2x00-lib is not set
+! # CONFIG_PACKAGE_kmod-rt61-pci is not set
+  # CONFIG_PACKAGE_kmod-rt73-usb is not set
+- # CONFIG_PACKAGE_kmod-rtl8180 is not set
+  # CONFIG_PACKAGE_kmod-rtl8187 is not set
+- # CONFIG_PACKAGE_kmod-rtl8192ce is not set
+  # CONFIG_PACKAGE_kmod-rtl8192cu is not set
+- # CONFIG_PACKAGE_kmod-rtl8192de is not set
+- # CONFIG_PACKAGE_kmod-rtl8192se is not set
+  # CONFIG_PACKAGE_kmod-rtl8xxxu is not set
+  # CONFIG_PACKAGE_kmod-zd1211rw is not set
+  
+--- 1946,1968 ----
+  # CONFIG_PACKAGE_MAC80211_TRACING is not set
+  CONFIG_PACKAGE_MAC80211_MESH=y
+  # CONFIG_PACKAGE_kmod-mac80211-hwsim is not set
+  # CONFIG_PACKAGE_kmod-mt7601u is not set
+  # CONFIG_PACKAGE_kmod-net-rtl8188eu is not set
+  # CONFIG_PACKAGE_kmod-net-rtl8192su is not set
+  # CONFIG_PACKAGE_kmod-p54-common is not set
+  # CONFIG_PACKAGE_kmod-p54-usb is not set
+  # CONFIG_PACKAGE_kmod-rt2500-usb is not set
+! CONFIG_PACKAGE_kmod-rt2800-lib=y
+! CONFIG_PACKAGE_kmod-rt2800-mmio=y
+! CONFIG_PACKAGE_kmod-rt2800-soc=y
+  # CONFIG_PACKAGE_kmod-rt2800-usb is not set
+! CONFIG_PACKAGE_kmod-rt2x00-lib=y
+! # CONFIG_PACKAGE_RT2X00_LIB_DEBUGFS is not set
+! # CONFIG_PACKAGE_RT2X00_DEBUG is not set
+! CONFIG_PACKAGE_kmod-rt2x00-mmio=y
+  # CONFIG_PACKAGE_kmod-rt73-usb is not set
+  # CONFIG_PACKAGE_kmod-rtl8187 is not set
+  # CONFIG_PACKAGE_kmod-rtl8192cu is not set
+  # CONFIG_PACKAGE_kmod-rtl8xxxu is not set
+  # CONFIG_PACKAGE_kmod-zd1211rw is not set
+  
+***************
+*** 2292,2307 ****
+  # CONFIG_PACKAGE_rssileds is not set
+  # CONFIG_PACKAGE_samba36-client is not set
+  # CONFIG_PACKAGE_samba36-server is not set
+- # CONFIG_PACKAGE_soloscli is not set
+  # CONFIG_PACKAGE_tcpdump is not set
+  # CONFIG_PACKAGE_tcpdump-mini is not set
+  # CONFIG_PACKAGE_uclient-fetch is not set
+  # CONFIG_PACKAGE_umbim is not set
+  # CONFIG_PACKAGE_uqmi is not set
+- # CONFIG_PACKAGE_vsc7385-ucode-ap83 is not set
+- # CONFIG_PACKAGE_vsc7385-ucode-pb44 is not set
+- # CONFIG_PACKAGE_vsc7395-ucode-ap83 is not set
+- # CONFIG_PACKAGE_vsc7395-ucode-pb44 is not set
+  # CONFIG_PACKAGE_wpa-cli is not set
+  # CONFIG_PACKAGE_wpa-supplicant is not set
+  # CONFIG_WPA_SUPPLICANT_NO_TIMESTAMP_CHECK is not set
+--- 2291,2301 ----
+***************
+*** 2309,2315 ****
+  CONFIG_WPA_MSG_MIN_PRIORITY=3
+  # CONFIG_DRIVER_WEXT_SUPPORT is not set
+  CONFIG_DRIVER_11N_SUPPORT=y
+! CONFIG_DRIVER_11W_SUPPORT=y
+  # CONFIG_PACKAGE_wpa-supplicant-mesh is not set
+  # CONFIG_PACKAGE_wpa-supplicant-mini is not set
+  # CONFIG_PACKAGE_wpa-supplicant-p2p is not set
+--- 2303,2309 ----
+  CONFIG_WPA_MSG_MIN_PRIORITY=3
+  # CONFIG_DRIVER_WEXT_SUPPORT is not set
+  CONFIG_DRIVER_11N_SUPPORT=y
+! # CONFIG_DRIVER_11W_SUPPORT is not set
+  # CONFIG_PACKAGE_wpa-supplicant-mesh is not set
+  # CONFIG_PACKAGE_wpa-supplicant-mini is not set
+  # CONFIG_PACKAGE_wpa-supplicant-p2p is not set
+***************
+*** 2400,2412 ****
+  # CONFIG_PACKAGE_owipcalc is not set
+  # CONFIG_PACKAGE_px5g is not set
+  # CONFIG_PACKAGE_px5g-standalone is not set
+- # CONFIG_PACKAGE_rbcfg is not set
+  # CONFIG_PACKAGE_rename is not set
+  # CONFIG_PACKAGE_robocfg is not set
+  # CONFIG_PACKAGE_spidev-test is not set
+  # CONFIG_PACKAGE_strace is not set
+! CONFIG_PACKAGE_uboot-envtools=y
+! # CONFIG_UBOOT_ENVTOOLS_UBI is not set
+  # CONFIG_PACKAGE_ugps is not set
+  # CONFIG_PACKAGE_usb-modeswitch is not set
+  # CONFIG_PACKAGE_usbreset is not set
+--- 2394,2404 ----
+  # CONFIG_PACKAGE_owipcalc is not set
+  # CONFIG_PACKAGE_px5g is not set
+  # CONFIG_PACKAGE_px5g-standalone is not set
+  # CONFIG_PACKAGE_rename is not set
+  # CONFIG_PACKAGE_robocfg is not set
+  # CONFIG_PACKAGE_spidev-test is not set
+  # CONFIG_PACKAGE_strace is not set
+! # CONFIG_PACKAGE_uboot-envtools is not set
+  # CONFIG_PACKAGE_ugps is not set
+  # CONFIG_PACKAGE_usb-modeswitch is not set
+  # CONFIG_PACKAGE_usbreset is not set
