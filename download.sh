@@ -1,9 +1,14 @@
 #!/bin/bash
 set -e
 
+SCRIPT_DIR=$(dirname $(readlink -e $0))
+. ${SCRIPT_DIR}/utils.sh
+
+export TERM=xterm
+export COLOR=always
+
 BRANCH=$1
 
-SCRIPT_DIR=$(dirname $(readlink -e $0))
 CACHE_BASE_DIR="${SCRIPT_DIR}/cache"
 
 if [[ ! -e ${HOME}/.ssh/config ]]; then
@@ -19,7 +24,7 @@ cd ${CACHE_BASE_DIR}/repos/${BRANCH}
 
 if [[ ! -d openwrt ]]; then
     # shallow clone
-    START_TIME=$SECONDS
+    set_timer
     if [[ ${BRANCH} = "trunk" ]]; then
         git clone --depth 1 https://github.com/openwrt/openwrt.git
     elif [[ ${BRANCH} = "15.05.1" ]]; then
@@ -28,10 +33,9 @@ if [[ ! -d openwrt ]]; then
         git clone --depth 1 -b barrier_breaker https://github.com/openwrt/openwrt.git
     else
         rmdir ${CACHE_BASE_DIR}/repos/${BRANCH}
-        echo "ERROR: Unknown branch name: ${BRANCH}"
-        exit 1
+        die "ERROR: Unknown branch name: ${BRANCH}"
     fi
-    echo "Cloning 'openwrt' finished. (elapsed time: $(expr $SECONDS - $START_TIME) secs)"
+    success "Cloning 'openwrt' finished. (elapsed time: $(time_elasped))"
 fi
 
 cd openwrt

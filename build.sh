@@ -1,30 +1,31 @@
 #!/bin/bash
 set -e
 
+SCRIPT_DIR=$(dirname $(readlink -e $0))
+. ${SCRIPT_DIR}/utils.sh
+
+export TERM=xterm
+export COLOR=always
+
 BRANCH=$1
 BOARD=$2
 
-SCRIPT_DIR=$(dirname $(readlink -e $0))
 PATCH_FILE="${SCRIPT_DIR}/patch/${BRANCH}-${BOARD}.patch"
 CACHE_BASE_DIR="${SCRIPT_DIR}/cache"
 
-[[ ! -e ${PATCH_FILE} ]] && echo "ERROR: cannot access ${PATCH_FILE}" && exit 1
+[[ ! -e ${PATCH_FILE} ]] && die "ERROR: cannot access ${PATCH_FILE}"
 
 # Copy cached buildroot to ${HOME}
 CACHED_BUILDROOT_DIR="${CACHE_BASE_DIR}/repos/${BRANCH}/openwrt"
 BUILDROOT_DIR="${HOME}/openwrt"
-if [[ ! -d ${CACHED_BUILDROOT_DIR} ]]; then
-    echo "ERROR: not found ${CACHED_BUILDROOT_DIR}"
-    exit 1
-fi
-if [[ -d ${BUILDROOT_DIR} ]]; then
-    echo "ERROR: already exist ${BUILDROOT_DIR}"
-    exit 1
-fi
-START_TIME=$SECONDS
+
+[[ ! -d ${CACHED_BUILDROOT_DIR} ]] && die "ERROR: not found ${CACHED_BUILDROOT_DIR}"
+[[ -d ${BUILDROOT_DIR} ]] && die "ERROR: already exist ${BUILDROOT_DIR}"
+
+set_timer
 mkdir -p ${BUILDROOT_DIR}
-tar -C ${CACHED_BUILDROOT_DIR} -cf - . | tar -C ${BUILDROOT_DIR} -xf -
-echo "Copying buildroot finished. (elapsed time: $(expr $SECONDS - $START_TIME) secs)"
+copy_all_files ${CACHED_BUILDROOT_DIR} ${BUILDROOT_DIR}
+success "Copying buildroot finished. (elapsed time: $(time_elasped))"
 
 # Prepare Travis CI's cache directory
 declare -A cache_dir=(
@@ -54,15 +55,15 @@ done
 cd ${HOME}/openwrt
 
 # Update feeds
-START_TIME=$SECONDS
+set_timer
 scripts/feeds update -a
-echo "Updating feeds finished. (elapsed time: $(expr $SECONDS - $START_TIME) secs)"
+success "Updating feeds finished. (elapsed time: $(time_elasped))"
 
 # Build toolchain
-START_TIME=$SECONDS
+set_timer
 patch -p1 < "${PATCH_FILE}"
 make toolchain/install
-echo "Building toolchain finished. (elapsed time: $(expr $SECONDS - $START_TIME) secs)"
+success "Building toolchain finished. (elapsed time: $(time_elasped))"
 
 # Cleanup
 for cache_target in "${cache_dir[@]}"; do
@@ -86,10 +87,10 @@ cd ${CACHE_BASE_DIR}
 for dir in *; do
     if [[ ${dir} =~ ^ccache- ]]; then
         echo ""
-        echo "### ccache status (before build) ###"
+        header "ccache status (before build)"
         cat /tmp/${dir}.log
         echo ""
-        echo "### ccache status (after build) ###"
+        header "ccache status (after build)"
         CCACHE_DIR=${dir} ccache -s
         rm -f /tmp/${dir}.log
     fi
