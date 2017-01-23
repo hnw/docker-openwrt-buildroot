@@ -11,7 +11,7 @@ Travis CIを利用し、OpenWrt buildrootのtoolchainまでビルドした状態
 
 ```
 $ docker run -it -u openwrt yhnw/openwrt-buildroot:15.05.1-ar71xx bash
-# cd openwrt
+# cd source
 # scripts/feeds update -a
 ```
 

@@ -79,7 +79,7 @@ function humanized_time() {
 }
 function set_timer() {
     local marker=$1
-    _util_timer_marker+=("${marker}:$SECONDS")
+    _util_timer_marker=("${marker}:$SECONDS" "${_util_timer_marker[@]}")
 }
 function time_elasped() {
     local marker=$1
